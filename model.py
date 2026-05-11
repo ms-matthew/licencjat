@@ -133,7 +133,7 @@ class Model(mesa.Model):
         for a in agenci:
             a.step()
 
-        # Czasem dodaj nowy zasob, zeby srodowisko nie wymarlo.
+        # dodawanie nowego zasobu (30% szans jesli jest ich mniej niz cel zasobow)
         zasoby = sum(1 for a in self.agents if isinstance(a, Zasob))
         if zasoby < self.cel_zasobow and random.random() < 0.3:
             self._dodaj_zasob()
